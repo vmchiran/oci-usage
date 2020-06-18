@@ -15,11 +15,12 @@ Authors
 Script based on this article: https://docs.cloud.oracle.com/iaas/Content/Billing/Tasks/accessingusagereports.htm
 OCI CLI Python SDK Documentation: https://oracle-cloud-infrastructure-python-sdk.readthedocs.io
 
-How to run examples
-python3 getUsageReportsOCI.py --ociProfile DEFAULT --destDir /home/opc/dir --targetDate 2020-01-20
-python3 getUsageReportsOCI.py --ociProfile DEFAULT --destDir /home/opc/dir --afterDate 2020-01-20
-python3 getUsageReportsOCI.py --ociProfile DEFAULT --destDir /home/opc/dir --beforeDate 2020-01-20
-python3 getUsageReportsOCI.py --ociProfile DEFAULT --destDir /home/opc/dir --betweenDates 2019-12-20/2020-01-20
+How to run
+Examples:
+python3 getUsageReportsOCI.py --ociProfile DEFAULT --destDir /home/opc/oci-usage --targetDate 2020-01-20
+python3 getUsageReportsOCI.py --ociProfile DEFAULT --destDir /home/opc/oci-usage --afterDate 2020-01-20
+python3 getUsageReportsOCI.py --ociProfile DEFAULT --destDir /home/opc/oci-usage --beforeDate 2020-01-20
+python3 getUsageReportsOCI.py --ociProfile DEFAULT --destDir /home/opc/oci-usage --betweenDates 2019-12-20/2020-01-20
 """
 
 ### Global variables ###
