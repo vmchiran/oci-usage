@@ -47,8 +47,8 @@ for o in report_bucket_objects.data.objects:
   filename = o.name.rsplit('/', 1)[-1]
   object_details = object_storage.get_object(usage_report_namespace,usage_report_bucket,o.name)
 
-# with open(destintation_path + '/' + filename, 'wb') as f:
-#   for chunk in object_details.data.raw.stream(1024 * 1024, decode_content=False):
-#     f.write(chunk)
+  with open(destintation_path + '/' + filename, 'wb') as f:
+    for chunk in object_details.data.raw.stream(1024 * 1024, decode_content=False):
+      f.write(chunk)
 
-# print('Finished downloading ' + o.name + '\n')
+  print('----> File ' + o.name + ' Downloaded\n')
