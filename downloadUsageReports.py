@@ -2,7 +2,7 @@ import oci
 import os
 import sys
 
-# python3 downloadUsageReports.py oci_profile
+# python3 downloadUsageReports.py my_oci_profile
 #
 # Ref. https://docs.cloud.oracle.com/iaas/Content/Billing/Tasks/accessingusagereports.htm
 #
