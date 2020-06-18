@@ -1,6 +1,6 @@
 # oci-usage-reports
 
-# Pre-requisites
+# Prerequisites
 - Python3
 - oci cli
 
