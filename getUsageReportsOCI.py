@@ -25,25 +25,26 @@ python3 getUsageReportsOCI.py --ociProfile DEFAULT --destDir /home/opc/oci-usage
 
 ### Global variables ###
 
-# OCI Config file -- MODIFY as needed
-config_file_location = "/home/opc/.oci/config"
-
 # usage reports namespace - leave as it is!!
 usage_report_namespace = "bling"
+
+# Download all usage and cost files. You can comment out based on the specific need:
+# prefix_file = ""                     #  For cost and usage files
+prefix_file = "reports/cost-csv"   #  For cost
+# prefix_file = "reports/usage-csv"  #  For usage
 
 def get_object_list(config_file_profile):
     """
     Method used to get the list of all objects from the usage reports bucket
     """
     # read the config file and create the object storage client
-    config = oci.config.from_file(config_file_location, config_file_profile)
+    config = oci.config.from_file(oci.config.DEFAULT_LOCATION, config_file_profile)
     object_storage = oci.object_storage.ObjectStorageClient(config)
     
-    # the bucket name is the name of your tenancy
     usage_report_bucket = config["tenancy"]
 
-    # added fields name,timeCreated and size to the report_bucket_objects Object so we can filter using them
-    report_bucket_objects = object_storage.list_objects(usage_report_namespace, usage_report_bucket, fields="name,timeCreated,size")
+    # added fields name, timeCreated and size to the report_bucket_objects Object so we can filter using them
+    report_bucket_objects = object_storage.list_objects(usage_report_namespace, usage_report_bucket, fields="name,timeCreated,size", prefix=prefix_file)
 
     return {"object_storage": object_storage, "report_bucket_objects": report_bucket_objects, "usage_report_bucket": usage_report_bucket}
 
